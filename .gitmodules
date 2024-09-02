@@ -1,0 +1,3 @@
+[submodule "easy-xray"]
+	path = easy-xray
+	url = git@github.com:EvgenyNerush/easy-xray.git
