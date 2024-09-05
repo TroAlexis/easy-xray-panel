@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  easy-xray:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVER_IP: 127.0.0.1
+        CDN_URL: ""
+        WEBSITE_URL: www.example.com
+        GRPC_SERVICE_NAME: ""
+        MODE: prod
+    container_name: easy-xray
+    command:
+      - /start.sh
+    volumes:
+      - easy-xray:/easy-xray
+      - server:/server
+    ports:
+      - "80:80"
+      - "443:443"
+      - "3000:3000"
+
+volumes:
+  easy-xray:
+  server:
