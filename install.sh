@@ -3,6 +3,7 @@
 if [ -z "$CDN_URL" ]; then
     ./ex.sh install <<-EOF
     Y
+    $CDN_URL
     $SERVER_IP
     Y
     9

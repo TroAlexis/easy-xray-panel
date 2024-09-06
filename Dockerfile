@@ -18,10 +18,7 @@ RUN dnf install --assumeyes jq openssl
 ARG CDN_URL
 ARG SERVER_IP
 ARG WEBSITE_URL
-ARG MODE
 ARG GRPC_SERVICE_NAME
-
-ENV MODE=$MODE
 
 # Ports
 EXPOSE 80

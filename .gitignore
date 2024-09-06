@@ -1,6 +1,9 @@
 .idea/
 server/node_modules/
 server/dist/
+server/data
+
+.env
 
 # submodules
 easy-xray
