@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { StatsController } from './stats.controller';
+import { EasyXrayStatsController } from './stats.controller';
 import { StatsRepository } from './stats.repository';
 import { StatsService } from './stats.service';
 
 @Module({
-  controllers: [StatsController],
+  controllers: [EasyXrayStatsController],
   providers: [StatsService, StatsRepository],
 })
 export class StatsModule {}

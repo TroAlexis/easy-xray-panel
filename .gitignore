@@ -1,9 +1,30 @@
-.idea/
-server/node_modules/
-server/dist/
+.idea
+
+node_modules
+
+server/dist
 server/data
 
+# Output
+.output
+.vercel
+.svelte-kit
+app/build
+app/src/generated
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
 .env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 
 # submodules
 easy-xray

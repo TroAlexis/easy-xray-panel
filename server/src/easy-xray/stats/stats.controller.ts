@@ -1,13 +1,16 @@
+import { ApiTag } from '@common/enums/api-tag.enum';
 import { Controller, Get, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { StatsService } from './stats.service';
 
+@ApiTags(ApiTag.EASY_XRAY)
 @Controller()
-export class StatsController {
+export class EasyXrayStatsController {
   constructor(private statsService: StatsService) {}
 
   @Get()
-  getTotalStats() {
-    return this.statsService.getTotalStats();
+  getTotal() {
+    return this.statsService.getTotal();
   }
 
   @Get('users')
@@ -16,7 +19,7 @@ export class StatsController {
   }
 
   @Post('reset')
-  resetStats() {
-    return this.statsService.resetStats();
+  reset() {
+    return this.statsService.reset();
   }
 }

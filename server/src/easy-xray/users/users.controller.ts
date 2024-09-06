@@ -1,4 +1,5 @@
 import { QueryArray } from '@common/decorators/query-array.decorator';
+import { ApiTag } from '@common/enums/api-tag.enum';
 import {
   Controller,
   Delete,
@@ -7,19 +8,21 @@ import {
   ParseArrayPipe,
   Post,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 
+@ApiTags(ApiTag.EASY_XRAY)
 @Controller()
-export class UsersController {
+export class EasyXrayUsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  getUsers() {
+  findAll() {
     return this.usersService.findAll();
   }
 
   @Post()
-  addUsers(
+  add(
     @QueryArray('names', new ParseArrayPipe({ items: String, separator: ',' }))
     names: string[],
   ) {
@@ -27,7 +30,7 @@ export class UsersController {
   }
 
   @Post('suspend')
-  suspendUsers(
+  suspend(
     @QueryArray('names', new ParseArrayPipe({ items: String, separator: ',' }))
     names: string[],
   ) {
@@ -35,7 +38,7 @@ export class UsersController {
   }
 
   @Post('resume')
-  resumeUsers(
+  resume(
     @QueryArray('names', new ParseArrayPipe({ items: String, separator: ',' }))
     names: string[],
   ) {
@@ -43,7 +46,7 @@ export class UsersController {
   }
 
   @Delete()
-  deleteUsers(
+  delete(
     @QueryArray('names', new ParseArrayPipe({ items: String, separator: ',' }))
     names: string[],
   ) {

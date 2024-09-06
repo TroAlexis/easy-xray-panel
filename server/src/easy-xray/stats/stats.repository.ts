@@ -6,7 +6,7 @@ import { getStats, parseTotalStats, parseUsersStats } from './stats.utils';
 
 @Injectable()
 export class StatsRepository {
-  getTotalStats() {
+  getTotal() {
     return parseTotalStats(getStats());
   }
 
@@ -14,7 +14,7 @@ export class StatsRepository {
     return parseUsersStats(getStats());
   }
 
-  resetStats() {
+  reset() {
     return shell.exec(
       `./${EXECUTABLE_FILENAME} ${EasyXrayCommand.STATS} reset`,
     );

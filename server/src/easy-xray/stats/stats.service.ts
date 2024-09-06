@@ -4,16 +4,16 @@ import { StatsRepository } from './stats.repository';
 @Injectable()
 export class StatsService {
   constructor(private statsRepository: StatsRepository) {}
-  getTotalStats() {
-    return this.statsRepository.getTotalStats();
+  getTotal() {
+    return this.statsRepository.getTotal();
   }
 
   getUsersStats() {
     return this.statsRepository.getUsersStats();
   }
 
-  resetStats() {
-    const result = this.statsRepository.resetStats();
+  reset() {
+    const result = this.statsRepository.reset();
 
     if (!result.includes('reset successfully')) {
       throw new InternalServerErrorException('Failed to reset stats');

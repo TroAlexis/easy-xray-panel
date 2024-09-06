@@ -1,5 +1,6 @@
 import { Cookies } from '@common/decorators/cookies.decorator';
 import { Public } from '@common/decorators/public.decorator';
+import { ApiTag } from '@common/enums/api-tag.enum';
 import { Environment } from '@common/enums/environment.enum';
 import {
   Body,
@@ -10,11 +11,13 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 import { AUTH_COOKIE_NAME } from './auth.const';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 
+@ApiTags(ApiTag.AUTH)
 @Controller('auth')
 export class AuthController {
   constructor(

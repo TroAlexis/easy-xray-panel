@@ -5,6 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import { UserEntity } from '../users/entities/user.entity';
 import { UsersService } from '../users/users.service';
+import { ProfileDto } from './dto/profile.dto';
 
 @Injectable()
 export class AuthService implements OnModuleInit {
@@ -48,7 +49,7 @@ export class AuthService implements OnModuleInit {
     return user;
   }
 
-  async verifyToken(token: string): Promise<{ userName: string }> {
+  async verifyToken(token: string): Promise<ProfileDto> {
     return this.jwtService.verify(token, {
       secret: this.configService.get(Environment.JWT_SECRET),
     });
