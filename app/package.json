@@ -9,7 +9,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"api:fetch": "curl -o ./api.json http://localhost:3000/api/json",
+		"api:fetch": "curl -o src/api/api.json http://localhost:3000/api/json",
 		"api:gen": "orval --config orval.config.cjs",
 		"api:update": "npm run api:fetch && npm run api:gen",
 		"format": "prettier --write ."
