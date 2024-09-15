@@ -14,6 +14,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@generated/*': 'src/generated/*',
+			'@features/*': 'src/features/*',
 		}
 	}
 };

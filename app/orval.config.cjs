@@ -3,10 +3,10 @@ module.exports = {
         output: {
             mode: 'tags-split',
             workspace: 'src/generated/api',
+            baseUrl: 'http://localhost:3000',
             target: 'api.ts',
             schemas: 'model',
             client: 'svelte-query',
-            httpClient: 'fetch',
             clean: true,
             prettier: true,
             override: {
@@ -22,7 +22,7 @@ module.exports = {
             }
         },
         input: {
-            target: './api.json',
+            target: './src/api/api.json',
         },
     },
 };

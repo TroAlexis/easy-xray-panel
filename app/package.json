@@ -9,7 +9,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"api:fetch": "curl -o src/api/api.json http://localhost:3000/api/json",
+		"api:fetch": "curl -o src/api/api.json http://localhost:3000/api/v1/docs/json",
 		"api:gen": "orval --config orval.config.cjs",
 		"api:update": "npm run api:fetch && npm run api:gen",
 		"format": "prettier --write ."
@@ -18,7 +18,9 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@tailwindcss/typography": "^0.5.14",
 		"@types/eslint": "^9.6.0",
+		"autoprefixer": "^10.4.20",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
@@ -26,14 +28,29 @@
 		"orval": "^7.1.0",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
+		"prettier-plugin-tailwindcss": "^0.6.5",
 		"svelte": "^4.2.7",
 		"svelte-check": "^4.0.0",
+		"tailwindcss": "^3.4.9",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0",
 		"vite": "^5.0.3"
 	},
 	"type": "module",
 	"dependencies": {
-		"@tanstack/svelte-query": "^5.54.2"
+		"@tanstack/svelte-query": "^5.54.2",
+		"@types/lodash": "^4.17.7",
+		"axios": "^1.7.7",
+		"bits-ui": "^0.21.13",
+		"clsx": "^2.1.1",
+		"formsnap": "^1.0.1",
+		"lodash": "^4.17.21",
+		"lucide-svelte": "^0.439.0",
+		"mode-watcher": "^0.4.1",
+		"svelte-sonner": "^0.3.28",
+		"sveltekit-superforms": "^2.17.0",
+		"tailwind-merge": "^2.5.2",
+		"tailwind-variants": "^0.2.1",
+		"zod": "^3.23.8"
 	}
 }

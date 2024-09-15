@@ -8,7 +8,7 @@ import {
 import { EasyXrayCommand } from '../easy-xray.enums';
 import { shell } from '../easy-xray.shell';
 import { getServerConfig, getUsersFromConfig } from '../easy-xray.utils';
-import { XrayUser } from './users.types';
+import type { XrayUserDto } from './dto/xray-user.dto';
 
 @Injectable()
 export class UsersRepository {
@@ -20,7 +20,7 @@ export class UsersRepository {
         return !file.includes('_cdn');
       });
 
-    const users = userConfigs.map<XrayUser>((file) => {
+    const users = userConfigs.map<XrayUserDto>((file) => {
       const [, userName] = file.match(/client_(.*).json$/);
       return { name: userName };
     });
@@ -30,7 +30,7 @@ export class UsersRepository {
     const serverConfigUsers = getUsersFromConfig(serverConfig);
     const serverConfigUserMap = keyBy(serverConfigUsers, 'name');
 
-    return users.map((user) => ({
+    return users.map<XrayUserDto>((user) => ({
       ...user,
       suspended: !serverConfigUserMap[user.name],
     }));
